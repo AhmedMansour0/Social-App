@@ -162,8 +162,8 @@ class FeedsScreen extends StatelessWidget {
  Widget buildPostItem(context,PostModel model,index)
  {
    if(model.dateTime!=null){
-     DateTime now = DateTime. now();
-     String formattedDate = DateFormat('yyyy-MM-dd – kk:mm'). format(now);
+     String now = DateFormat.yMMMMEEEEd().format(DateTime.now());
+     model.dateTime= now;
    }
    return Card(
      clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -208,7 +208,7 @@ class FeedsScreen extends StatelessWidget {
                          )
                        ],
                      ),
-                     Text('${model.dateTime}',
+                     Text(model.dateTime!,
                        style: Theme.of(context).textTheme.caption!.copyWith(
                            height: 1.4
                        ),
@@ -221,8 +221,13 @@ class FeedsScreen extends StatelessWidget {
                ),
              IconButton(
                  onPressed: (){
-               SocialCubit.get(context).deletePost(
-                   postId: SocialCubit.get(context).postId[index]);
+                   {
+                      {
+                       SocialCubit.get(context).deletePost(
+                         postId: SocialCubit.get(context).postId[index]
+                       );
+                     }
+                   }
              }, icon: Icon(IconBroken.Delete))
              ],
            ),

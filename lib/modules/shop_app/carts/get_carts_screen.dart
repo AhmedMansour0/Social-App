@@ -38,7 +38,6 @@ class GetCartsScreen extends StatelessWidget {
   }
   }
 
-
 Widget buildCartItem(CartItems model, context) =>  Padding(
     padding: const EdgeInsets.all(20.0),
     child:Container(

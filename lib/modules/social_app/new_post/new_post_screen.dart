@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled/layout/social_app/cubit/cubit.dart';
 import 'package:untitled/layout/social_app/cubit/states.dart';
+import 'package:untitled/modules/social_app/feeds/feeds_screen.dart';
+import 'package:untitled/shared/components/components.dart';
 import 'package:untitled/shared/styles/icon_broken.dart';
 
 class NewPostScreen extends StatelessWidget {
@@ -39,6 +41,7 @@ class NewPostScreen extends StatelessWidget {
                     text: textController.text
                 );
               }
+            textController.clear();
           },
               child: Text('Post'))
         ],

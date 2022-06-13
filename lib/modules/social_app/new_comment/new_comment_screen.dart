@@ -76,10 +76,10 @@ class NewCommentScreen extends StatelessWidget {
                           ),
                         ),
                         TextButton(onPressed: (){
-                          var now= DateTime.now();
-                          String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
+                          String now = DateFormat.yMMMMEEEEd().format(DateTime.now());
+
                           SocialCubit.get(context).createComment(
-                              dataTime: formattedDate.toString(),
+                              dataTime: now.toString(),
                               comment: commentController.text,
                               postId: SocialCubit.get(context).newPostId.toString(),
                           );

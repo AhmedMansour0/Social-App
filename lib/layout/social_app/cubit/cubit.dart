@@ -252,9 +252,9 @@ class SocialCubit extends Cubit<SocialStates> {
     required String dateTime,
     required String text,
     String? postImage,
+    context,
   }) {
     emit(SocialCreatePostLoadingState());
-
     PostModel model = PostModel(
       name: userModel!.name,
       image: userModel!.image,
@@ -268,6 +268,7 @@ class SocialCubit extends Cubit<SocialStates> {
         .collection('posts')
         .add(model.toMap())
         .then((value) {
+          showToast(text: 'Post uploaded successfully', state: ToastStates.SUCCESS);
       emit(SocialCreatePostSuccessState());
     }).catchError((error) {
       emit(SocialCreatePostErrorState());
@@ -482,14 +483,19 @@ void getMessages({
 
 void deletePost({String? postId})
 {
-  FirebaseFirestore.instance
+  {
+    FirebaseFirestore.instance
       .collection('posts')
       .doc(postId)
       .delete().then((value) {
+      showToast(
+          text:'Post Deleted',
+          state:ToastStates.SUCCESS );
         emit(SocialDeletePostSuccessState());
   }).catchError((error){
     emit(SocialDeletePostErrorState());
   });
+  }
 }
 
   File ? messageImage;
