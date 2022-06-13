@@ -41,30 +41,30 @@ void main() async {
 
   Widget widget;
   bool ? isDark = CacheHelper.getData(key: 'isDark');
-  bool ? onBoarding = CacheHelper.getData(key: 'onBoarding');
-  token = CacheHelper.getData(key: 'token');
-  // uId = CacheHelper.getData(key: 'uId');
-  //
-  //   if(uId != null)
-  //     {
-  //       widget = SocialLayout();
-  //     }
-  //   else
-  //     {
-  //       widget = SocialLoginScreen();
-  //     }
+  // bool ? onBoarding = CacheHelper.getData(key: 'onBoarding');
+  // token = CacheHelper.getData(key: 'token');
+  uId = CacheHelper.getData(key: 'uId');
 
-  if(onBoarding !=null)
-  {
-    if (token != null) {
-      widget = ShopLayout();
-    } else {
-      widget = ShopLoginScreen();
-    }
-  }
-  else {
-    widget = OnBoardingScreen();
-  }
+    if(uId != null)
+      {
+        widget = SocialLayout();
+      }
+    else
+      {
+        widget = SocialLoginScreen();
+      }
+
+  // if(onBoarding !=null)
+  // {
+  //   if (token != null) {
+  //     widget = ShopLayout();
+  //   } else {
+  //     widget = ShopLoginScreen();
+  //   }
+  // }
+  // else {
+  //   widget = OnBoardingScreen();
+  // }
    BlocOverrides.runZoned(() {
 
     runApp(MyApp(
