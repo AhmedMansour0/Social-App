@@ -95,7 +95,7 @@ class NewPostScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(9.0),
                         child: CircleAvatar(
                           radius: 20.0,
                           child: IconButton(
